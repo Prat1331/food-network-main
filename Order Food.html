@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .name {
+            margin: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(161, 49, 131);
+        }
+        .price {
+            background-color: black;
+            color: gold;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+        thead {
+            background-color: rgb(130, 158, 157);
+        }
+        td {
+            padding: 20px;
+        }
+        .form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 1500px;
+            height: fit-content;
+            justify-content: flex-start;
+            gap: 20px;
+            background-color: rgb(41, 55, 77);
+            padding: 10px;
+            align-content: flex-start;
+        }
+        .input, button {
+            padding: 12px;
+            border-radius: 12px;
+        }
+        .long {
+            padding: 10px;
+        }
+        .popup {
+            text-align: center;
+            background-color: cornflowerblue;
+            padding: 20px;
+            width: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <input type="text" id="name" placeholder="Meal Name">
+        <input type="text" id="number" placeholder="Number of Orders">
+        <input type="text" id="price" placeholder="Price">
+        <button onclick="addRecord()">Add TO IMDB</button>
+    </div>
+    <div id="popup" class="popup">
+        <input type="text" id="popupName" placeholder="Meal Name">
+        <input type="text" id="popupNumber" placeholder="Number of Orders">
+        <input type="text" id="popupPrice" placeholder="Price">
+        <button onclick="updateRecord()">Update</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>
+    <table border="2">
+        <thead>
+            <tr class="long">
+                <td>S.NO</td>
+                <td>Meal Name</td>
+                <td>Number of Orders</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+        var containerObj = document.getElementById("tbody");
+        var popupObj = document.querySelector(".popup");
+        var popupNameObj = document.getElementById("popupName");
+        var popupNumberObj = document.getElementById("popupNumber");
+        var popupPriceObj = document.getElementById("popupPrice");
+        var editIndex = undefined;
+        var imdb = [
+            { name: "Food Package 1(rice,chapati,dal,pickle)", number: "2000", price: "100000" },
+            { name: "Food Package 2(sandwich,chips,frooty,muffin)", number: "3000", price: "150000" },
+            { name: "Food Package 3(sandwich,tea,samosa,cold drink)", number: "1000", price: "50000" },
+            { name: "Food Package 4(normal water bottle,ice cream)", number: "4000", price: "40000" },
+            { name: "Food Package 5(water bottle,samosa,sandwich)", number: "3000", price: "120000" },
+        ];
+
+        render();
+
+        function render() {
+            var tmp = '';
+            for (var i = 0; i < imdb.length; i++) {
+                tmp += `<tr>
+                    <td>${i + 1}</td>
+                    <td class='name'>${imdb[i].name}</td>
+                    <td class='number'>${imdb[i].number}</td>
+                    <td class='price'>${imdb[i].price}</td>
+                    <td>
+                        <button onclick='showPopup(${i})'>Edit</button>
+                        <button onclick='deleteRecord(${i})'>Delete</button>
+                    </td>
+                </tr>`;
+            }
+            containerObj.innerHTML = tmp;
+        }
+
+        function addRecord() {
+            var nameObj = document.getElementById("name");
+            var numberObj = document.getElementById("number");
+            var priceObj = document.getElementById("price");
+            var tmpObj = { name: nameObj.value, number: numberObj.value, price: priceObj.value };
+            imdb.push(tmpObj);
+            render();
+            clearInputFields();
+        }
+
+        function deleteRecord(ind) {
+            var res = confirm(`Are you sure you want to delete '${imdb[ind].name}'?`);
+            if (res) {
+                imdb.splice(ind, 1);
+                render();
+            }
+        }
+
+        function showPopup(ind) {
+            popupObj.style.display = 'block';
+            popupNameObj.value = imdb[ind].name;
+            popupNumberObj.value = imdb[ind].number;
+            popupPriceObj.value = imdb[ind].price;
+            editIndex = ind;
+        }
+
+        function closePopup() {
+            popupObj.style.display = "none";
+        }
+
+        function updateRecord() {
+            var updatedName = popupNameObj.value;
+            var updatedNumber = popupNumberObj.value;
+            var updatedPrice = popupPriceObj.value;
+            imdb[editIndex].name = updatedName;
+            imdb[editIndex].number = updatedNumber;
+            imdb[editIndex].price = updatedPrice;
+            render();
+            popupObj.style.display = 'none';
+            clearInputFields();
+            
+        }
+
+        function clearInputFields() {
+            document.getElementById("name").value = '';
+            document.getElementById("number").value = '';
+            document.getElementById("price").value = '';
+        }
+    </script>
+</body>
+</html>

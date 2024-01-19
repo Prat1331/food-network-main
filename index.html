@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 50vh;
+            background-image: url(th.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+          }
+          .navbar {
+            margin: 0;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            font-family: "Bona Nova", serif;
+          }
+          .brand-image h1 {
+            color: white;
+            font-size: 30px;
+          }
+          .nav-links a {
+            background-color: #f87c17;
+            text-decoration: none;
+            color: rgb(252, 251, 252);
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 8px;
+          }
+          .nav-links a:hover {
+            color: black;
+            background: linear-gradient(
+              90deg,
+              rgba(255, 190, 60, 0.9948354341736695) 0%,
+              rgba(255, 76, 0, 1) 100%
+            );
+          }
+          .banner {
+            margin-top: 30px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(255, 255, 255);
+          }
+          .text-banner span {
+            color: rgb(243, 123, 11);
+            font-family: "Bona Nova", serif;
+          }
+          .text-banner a {
+            text-decoration: none;
+            color: white;
+            margin: 10px;
+            padding: 10px 20px;
+            background: rgb(255, 190, 60);
+            background: linear-gradient(
+              90deg,
+              rgba(255, 190, 60, 0.9948354341736695) 0%,
+              rgba(255, 76, 0, 1) 100%
+            );
+            border-radius: 20px;
+          }
+          .text-banner a:hover {
+            color: black;
+          }
+          .about-section {
+            width: 100%;
+            height: 60vh;
+            margin-top: 61px;
+            background-image: url(images/shapes/Frame\ 58.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .about-half {
+            width: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .about-half img {
+            width: auto;
+            height: 300px;
+            padding: 20px;
+            margin: 20px 40px;
+          }
+          .about-text {
+            width: 400px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+          }
+          .about-text h1 {
+            text-shadow: 1px 1px 0px #f0c5c5;
+            font-family: "Bona Nova", serif;
+          }
+          .about-text a {
+            width: 78px;
+            text-decoration: none;
+            color: white;
+            margin: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, rgb(251 123 159) 0%, rgb(222 19 41) 100%);
+            border-radius: 20px;
+          }
+          .about-text a:hover {
+            color: black;
+          }
+          
+          .my-recipies {
+            margin-top: 20px;
+          }
+          .recipe-text {
+            text-align: center;
+            margin: 5px 300px;
+          
+            justify-content: center;
+            align-items: center;
+          }
+          .recipies {
+            width: 80%;
+            height: auto;
+            display: flex;
+            margin: 0 auto;
+          }
+          .my-recipies h2 {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            text-shadow: 1px 1px 0px #f87c17;
+            font-family: "Bona Nova", serif;
+          }
+          .card img {
+            width: 100%;
+          }
+          .card .title {
+            position: relative;
+          }
+          
+          .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 33%;
+            margin-left: 30px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+          }
+          
+          .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          }
+          
+          .container {
+            padding: 2px 16px;
+          }
+          .container p {
+            font-size: 14px;
+            font-family: "Bona Nova", serif;
+            font-weight: bold;
+          }
+          
+          
+          
+          .feedback {
+            width: 100%;
+            height: 300px;
+          }
+          .feedback h3 {
+            text-align: center;
+            margin: 0;
+            font-size: 25px;
+            text-shadow: 1px 1px 0px #f8b930;
+            font-family: "Bona Nova", serif;
+          }
+          .feedback-div {
+            width: 100%;
+            display: flex;
+            margin: 0 auto;
+          }
+          .feedback-card {
+            background: rgb(215, 232, 247);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 20%;
+            margin: 25px;
+            padding: 10px;
+            border-radius: 10px;
+          }
+          
+          .followers {
+            width: 100%;
+            height: auto;
+          }
+          .followers-div {
+            width: 60%;
+            display: flex;
+            margin: 0 auto;
+            box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            background-color: antiquewhite;
+          }
+          .follower-card {
+            text-align: center;
+            width: 20%;
+            margin: 35px;
+            padding: 10px;
+            border-radius: 10px;
+          }
+          
+          .footer {
+            width: 100%;
+            height: 200px;
+            background: rgb(1, 2, 26);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+          .footer-text {
+            font-size: 20px;
+            font-weight: 400;
+          }
+          .footer-text h1 {
+            text-transform: uppercase;
+          }
+          .footer span {
+            color: rgb(224, 133, 91);
+          }
+          .footer-text h6 {
+            color: antiquewhite;
+          }    
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <section class="header">
+        <nav class="navbar">
+            <div class="brand-image">
+                <h1>ResQFeed</h1>
+            </div>
+            <div class="nav-links">
+                <a href="Login.html">Login</a>
+                <a href="#about">About</a>
+                <a href="#recipe">My Recipe</a>
+                <a href="#feedback-id">Feedback</a>
+                <a href="#followers-id">Followers</a>
+            </div>
+        </nav>
+        <div class="banner">
+            <div class="text-banner">
+                <h2><span>Don't Worry</span> We ARE Here,</h2>
+                <h3>To HELP You in Every Possible Situation</h3>
+                <h3>With Food Network</h3>
+                <p >Imagine when there were crisis dont worry  because we provide healthy and delicious food for you. Please come and visit our Food Network.</p>
+                <a href="Order Food.html">Order Food</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about-section" id="about">
+        <div class="about-half">
+            <img src="th1.jpeg" alt="">
+        </div>
+        <div class="about-half">
+            <div class="about-text">
+                <h1>About Us</h1>
+            <p>
+                At Resilience Food Solutions, we embrace the art of transforming adversity into opportunity. Our culinary wizards concoct resilient recipes that not only survive the test of time but thrive in the face of change.
+            </p> 
+            <a href="Contact Us.html">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="my-recipies" id="recipe">
+        <h2>Our Recipes</h2> 
+        <p class="recipe-text">Our recipe is a set of instruction used for preparing and producing a certain food, dish, or drink. The purpose of a recipe is to have a precise record of the ingredients used, the amounts needed, and the way they are combined.</p>
+        <div class="recipies">
+            <div class="card">
+                <img src="th2.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>Drought-Resilient Rice</b></h4> 
+                    <p>Our specially curated rice delivery ensures a staple food source that is both nutritious and water-efficient. This drought-resilient rice plays a crucial role in sustaining communities facing water scarcity.</p> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="th3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>Crispy Samosas</b></h4> 
+                    <p>Indulge in the delightful taste of our freshly prepared samosas, delivered right to your doorstep. These crispy parcels are not only a culinary delight but also serve as a practical and satisfying food option for communities in drought-prone areas.</p> 
+                </div>
+            </div><div class="card">
+                <img src="Th4.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>Diverse Grain Mix for Resilience</b></h4> 
+                    <p>Our resilient grain mix delivery offers a diverse selection of grains, providing a comprehensive solution to nutritional needs. These grains are chosen for their adaptability to challenging environmental conditions.</p> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="feedback" id="feedback-id">
+        <h3>Feedback</h3>
+        <div class="feedback-div">
+            <div class="feedback-card">
+                <div class="container">
+                    <h4><b> Name: Aman</b></h4> 
+                    <p>The food packets provided by Resilient Food Solutions were a lifesaver. The nutritional value and taste were beyond my expectations. It's heartening to see such initiatives making a positive impact in drought-prone areas.</p> 
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="container">
+                    <h4><b> Name: Rahul</b></h4> 
+                    <p>Resilient Food Solutions has done an excellent job. The food packets not only provided sustenance but also brought a sense of relief. The team's dedication to ensuring the well-being of communities in drought-prone areas is truly commendable.</p> 
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="container">
+                    <h4><b> Name: Neha</b></h4> 
+                    <p>The food packets from Resilient Food Solutions are a blessing. The combination of nutritious options, including traditional and innovative choices, makes a significant difference in areas facing drought challenges. The affordability adds immense value.</p> 
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="container">
+                    <h4><b> Name: Ram</b></h4> 
+                    <p>I want to express my gratitude to Resilient Food Solutions for the well-thought-out food packets. Each bite was not only delicious but also a testament to their commitment to addressing food security in drought-prone regions. A 3-course meal, accompanied by heartfelt thanks!</p> 
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    
+    <section class="followers" id="followers-id">
+        <div class="followers-div">
+            <div class="follower-card">
+                <h3>700k</h3>
+                <p>Youtube Subscriber</p>
+            </div>
+            <div class="follower-card">
+                <h3>2.4M</h3>
+                <p>Instagram followers</p>
+            </div>
+            <div class="follower-card">
+                <h3>100k</h3>
+                <p>Dribble shot Likes</p>
+            </div>
+        </div>
+
+    </section>
+    
+    <section class="footer">
+        <div class="footer-text">
+            <h1> <span>Food</span> Network</h1>
+            <p>Eat healthy to live healthy. Live healthy to live happy.</p> 
+            <h6>© Shuvro75  All Rights Reserved.</h6>
+        </div>
+    </section>
+    
+
+</body>
+</html>

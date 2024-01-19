@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="welcome.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: #ffeb3b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.header{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: #363636;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    transform: scale(0.3) rotate(-5deg);
+    animation: full-page 1s 3s forwards 1;
+}
+
+ .cover{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background: #212121;
+} 
+
+ .cover.top{
+    transform-origin: top;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+    animation: open-top 1s forwards 1;
+}
+
+.cover.left{
+    transform-origin: left;
+    clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
+    animation: open-left 1s 2s forwards 1;
+}
+
+ .cover.bottom{
+    transform-origin: bottom;
+    clip-path: polygon(0% 100%, 100% 100%, 50% 50%);
+    animation: open-top 1s 1s forwards 1;
+}
+
+.cover.right{
+    transform-origin: right;
+    clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
+    animation: open-left 1s 2s forwards 1;
+} 
+
+ @keyframes open-top{
+    100%{
+        transform: rotateX(-150deg);
+    }
+}
+
+@keyframes open-left{
+    100%{
+        transform: rotateY(-130deg);
+    }
+}
+
+@keyframes full-page{
+    100%{
+        transform: scale(1) rotate(360deg);
+    }
+} 
+
+@keyframes fade-in{
+    100%{
+        opacity: 1;
+    }
+}
+
+.col{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff9c4;
+    opacity: 0; 
+    animation: fade-in 1s 3.54s forwards 1;
+}
+.content{
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: space-between;
+ font-family: 'dosis';
+ /* font-size: 2.5rem; */
+ text-transform: capitalize;
+}
+h1{
+    font-family: 'dosis';
+    font-weight: 700;
+    font-size:60px;
+    /* text-align: left; */
+}
+h3
+   {
+    margin-top: 40px;
+    position: relative;
+    left: 9px;
+    font-family: 'dosis';
+    font-weight: 400;
+}
+ .help{
+    color: #c5662f;
+    font-family: 'dosis';
+    font-weight: 500;
+    position: relative;
+}
+.svg{
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.heading{
+ text-align: justify;
+ margin-top: 12px;
+}
+
+.info{
+    margin-top: 40px;
+    font-family: roboto, sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    position: relative;
+    letter-spacing:-0.9px;
+    left: 9px;
+}
+.a{
+    margin-top: 18px;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+.btn:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+.btn:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <span class="cover top">
+        </span><span class="cover left">
+        </span><span class="cover right">
+        </span><span class="cover bottom">
+        </span>
+        <div class="col">
+            <div class="content">
+                <h1 class="heading">Welcome to <span class="help">ResQFeeD</span></h1>
+                  <h3>To <span class="help">Help</span> in every Possible Situation With food network .</h3>
+                <p class="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum esse soluta distinctio saepe repellendus nam ipsam excepturi, dolore quae .</p>
+                <div class="a">
+                    <a class="btn" href="index.html">VISIT US</a>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col">
+            <img src="rr-removebg-preview.png" class="svg" alt="">
+        </div>
+       
+    </header>
+   
+</body>
+
+</html>
